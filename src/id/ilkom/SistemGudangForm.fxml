@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: 1d3557;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ilkom.SistemGudangFormController">
+   <children>
+      <MenuBar layoutY="2.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Transaksi">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Barang Masuk" />
+                  <MenuItem mnemonicParsing="false" text="Barang Keluar" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane layoutY="27.0" prefHeight="694.0" prefWidth="1280.0">
+         <children>
+            <TabPane layoutY="-6.0" prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: #1d3557;" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Individual Holder">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <HBox layoutX="7.0" prefHeight="672.0" prefWidth="1272.0">
+                                 <children>
+                                    <AnchorPane prefHeight="675.0" prefWidth="359.0" style="-fx-background-color: #457b9d;">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <Label layoutX="9.0" layoutY="14.0" prefHeight="17.0" prefWidth="273.0" text="Sistem Gudang AAT" textFill="#fffefe">
+                                             <font>
+                                                <Font size="27.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="tfGudangID" disable="true" layoutX="9.0" layoutY="82.0" prefHeight="34.0" prefWidth="275.0" promptText="ID Barang" />
+                                          <TextField fx:id="tfNama" layoutX="8.0" layoutY="123.0" prefHeight="34.0" prefWidth="275.0" promptText="Nama Pemilik" />
+                                          <TextField fx:id="tfAlamat" layoutX="8.0" layoutY="164.0" prefHeight="34.0" prefWidth="275.0" promptText="Alamat Pemilik" />
+                                          <ComboBox fx:id="cbNik" layoutX="9.0" layoutY="204.0" prefHeight="34.0" prefWidth="275.0" promptText="Pilih Jaminan" />
+                                          <DatePicker fx:id="dpBirthdate" layoutX="7.0" layoutY="247.0" prefHeight="34.0" prefWidth="275.0" promptText="Tanggal Masuk" />
+                                          <TextField fx:id="tfNomember" disable="true" layoutX="7.0" layoutY="311.0" prefHeight="34.0" prefWidth="275.0" promptText="Nomor Member" />
+                                          <TextField fx:id="tfAkBarang" layoutX="7.0" layoutY="351.0" prefHeight="34.0" prefWidth="275.0" promptText="Nama Barang" />
+                                          <Button fx:id="btnAddSistemGudang" layoutX="7.0" layoutY="465.0" mnemonicParsing="false" onAction="#handleAddGudangButton" prefHeight="34.0" prefWidth="275.0" text="Tambah Barang" />
+                                          <Button fx:id="btnReload" layoutX="7.0" layoutY="506.0" mnemonicParsing="false" onAction="#handleReloadButton" prefHeight="34.0" prefWidth="275.0" text="Reload Tabel" />
+                                          <Button fx:id="btnClear" layoutX="7.0" layoutY="547.0" mnemonicParsing="false" onAction="#handleClearButton" prefHeight="34.0" prefWidth="275.0" text="Hapus Form" />
+                                          <Label fx:id="lblSaveStatus" layoutX="12.0" layoutY="403.0" prefHeight="17.0" prefWidth="265.0" textFill="#040457" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="675.0" prefWidth="938.0">
+                                       <children>
+                                          <VBox layoutX="-2.0" prefHeight="675.0" prefWidth="963.0">
+                                             <children>
+                                                <AnchorPane prefHeight="402.0" prefWidth="915.0" style="-fx-background-color: #a8dadc;">
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                   </VBox.margin>
+                                                   <children>
+                                                      <TableView fx:id="tblSisGudang" prefHeight="400.0" prefWidth="941.0">
+                                                        <columns>
+                                                          <TableColumn fx:id="colGudangID" prefWidth="75.0" text="ID Gudang" />
+                                                          <TableColumn fx:id="colNama" prefWidth="201.0" text="Nama" />
+                                                            <TableColumn fx:id="colAlamat" prefWidth="219.0" text="Alamat" />
+                                                            <TableColumn fx:id="colNik" prefWidth="141.0" text="Jaminan" />
+                                                            <TableColumn fx:id="colBirthdate" prefWidth="183.0" text="Tanggal Masuk" />
+                                                            <TableColumn fx:id="colNoAkunn" prefWidth="114.0" text="No Member" />
+                                                        </columns>
+                                                      </TableView>
+                                                   </children>
+                                                </AnchorPane>
+                                                <HBox prefHeight="244.0" prefWidth="963.0" style="-fx-background-color: #f1faee;">
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" left="10.0" right="10.0" />
+                                                   </VBox.margin>
+                                                   <children>
+                                                      <AnchorPane prefHeight="244.0" prefWidth="430.0" style="-fx-background-color: #a8dadc;">
+                                                         <children>
+                                                            <TableView fx:id="tblAkun" prefHeight="239.0" prefWidth="424.0">
+                                                              <columns>
+                                                                <TableColumn fx:id="colNoMember" prefWidth="195.0" text="Nomor Member" />
+                                                                <TableColumn fx:id="colBarang" prefWidth="202.0" text="Barang" />
+                                                              </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </AnchorPane>
+                                                      <AnchorPane prefHeight="244.0" prefWidth="513.0">
+                                                         <children>
+                                                            <TextField fx:id="tfNewGudangID" disable="true" layoutX="22.0" layoutY="8.0" prefHeight="34.0" prefWidth="275.0" promptText="Gudang ID" text="ID Gudang" />
+                                                            <TextField fx:id="tfNewNoMember" disable="true" layoutX="22.0" layoutY="51.0" prefHeight="34.0" prefWidth="275.0" promptText="New Nomor Member" text="Log No Member" />
+                                                            <TextField fx:id="tfNewAkBarang" layoutX="22.0" layoutY="95.0" prefHeight="34.0" prefWidth="275.0" promptText="New Akun Barang" text="Masukkan Barang Baru" />
+                                                            <Button fx:id="btnAddAkun" layoutX="22.0" layoutY="140.0" mnemonicParsing="false" onAction="#handleAddAkunButton" prefHeight="34.0" prefWidth="275.0" text="Tambah Barang" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+      <Label layoutX="1040.0" layoutY="3.0" text="DB Status:" />
+      <Label fx:id="lblDBStatus" layoutX="1105.0" layoutY="3.0" />
+   </children>
+</AnchorPane>
